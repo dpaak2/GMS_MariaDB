@@ -107,12 +107,12 @@ INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) v
 INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('chole','choleee','1','900113-2233445',now(),'010-1234-1234','chole@test.com','default.jsp');
 INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('moonb','장문복','1','980214-1122334',now(),'010-1234-1234','moonb@test.com','default.jsp');
 INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('danny','강다니엘','1','990813-1122334',now(),'010-1234-1234','danny@test.com','default.jsp');
- INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('song','송중기','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
- INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('park','박보검','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
- INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('gong','공지철','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
- INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('gang','강동원','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
- INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('ha','하정우','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
- INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('kimnam','김남길','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
+INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('song','송중기','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
+INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('park','박보검','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
+INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('gong','공지철','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
+INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('gang','강동원','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
+INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('ha','하정우','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
+INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('kimnam','김남길','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
  INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('seo','서강준','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
  INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('jang','장근석','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
  INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('somi','전소미','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
@@ -133,15 +133,16 @@ INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) v
 
 /*교수 insert*/
 INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) 
-VALUES('mankiew','맨큐','1','700102-123456',now(),'010-1234-1234','mankiew@test.com','defaultimg.jpg');
+VALUES('mankiew','맨큐','1','700102-1234567',now(),'010-1234-1234','mankiew@test.com','defaultimg.jpg');
 INSERT INTO Member(member_id, name, password,ssn,regdate,phone,email,profile)
-VALUES('james','제임스','1','550519-123456',now(),'010-1111-1111','james@test.com','defaultimg.jpg');
+VALUES('james','제임스','1','550519-1234567',now(),'010-1111-1111','james@test.com','defaultimg.jpg');
 INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile)
-VALUES('bare','베어','1','830105-123456',now(),'010-1234-5555','bare@test.com','defaultimg.jpg'); 
+VALUES('bare','베어','1','830105-1234567',now(),'010-1234-5555','bare@test.com','defaultimg.jpg'); 
 INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile)
-VALUES('gogh','고흐','1','530105-123456',now(),'010-1234-6666','gogh@test.com','defaultimg.jpg');
+VALUES('gogh','고흐','1','530105-1234567',now(),'010-1234-6666','gogh@test.com','defaultimg.jpg');
 
-
+INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile)
+VALUES('jason','박정관','1','830101-1234567',now(),'010-8888-6666','jason@test.com','defaultimg.jpg');
 
 /*******************
  *  -- [4]PROF_TAB  checked
@@ -153,6 +154,11 @@ CREATE TABLE Prof (
 	PRIMARY KEY (member_id)
 );
 
+  INSERT INTO Prof(member_id,salary) VALUES ('mankiew','');
+  INSERT INTO Prof(member_id,salary) VALUES ('james',);
+  INSERT INTO Prof(member_id,salary) VALUES ('bare','');
+  INSERT INTO Prof(member_id,salary) VALUES ('gogh','');
+  INSERT INTO Prof(member_id,salary) VALUES ('jason','');
 
 
 /*******************
