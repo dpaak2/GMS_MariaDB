@@ -242,6 +242,7 @@ from (select a.member_id, a.name,rpad(substr(a.ssn,1,7),14,'*') ssn,to_char(a.re
   /*oracle:: to_char  ----   mysql:::  SELECT CONCAT('$', FORMAT(1000, 0));*/
   /*oracle:: listagg ---- */
   
+  /*step 1*/
     select * 
   from 
   member a 
@@ -256,7 +257,7 @@ from (select a.member_id, a.name,rpad(substr(a.ssn,1,7),14,'*') ssn,to_char(a.re
   	;
   
   	
-/*SECOND*/
+/*step 2*/
   	
   	
   	select a.member_id, a.name,rpad(SUBSTRING(a.ssn,1,7),14,'*') ssn,CONCAT(a.regdate,'yyyy-MM-dd') regdate,
@@ -267,5 +268,7 @@ from (select a.member_id, a.name,rpad(substr(a.ssn,1,7),14,'*') ssn,to_char(a.re
         group by a.member_id, a.name, a.ssn,a.regdate,a.phone,a.email
         order by regdate ;
  
+        
+  /*step 3 */
 
 
