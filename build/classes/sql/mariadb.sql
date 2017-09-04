@@ -113,20 +113,20 @@ INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) v
 INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('gang','강동원','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
 INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('ha','하정우','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
 INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('kimnam','김남길','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
- INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('seo','서강준','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
- INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('jang','장근석','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
- INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('somi','전소미','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
- INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('cheng','김청하','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
- INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('doyeoun','김도연','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
- INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('sohae','김소혜','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
- INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('somsom','전소미','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
- INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('yoojung','최유정','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
- INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('seajung','김세정','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
- INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('chae','정채연','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
- INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('nayong','임나영','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
- INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('mina','강미나','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
- INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('yooyeon','유연정','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
- INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('min','이승민','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
+INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('seo','서강준','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
+INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('jang','장근석','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
+INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('somi','전소미','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
+INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('cheng','김청하','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
+INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('doyeoun','김도연','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
+INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('sohae','김소혜','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
+INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('somsom','전소미','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
+INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('yoojung','최유정','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
+INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('seajung','김세정','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
+INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('chae','정채연','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
+INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('nayong','임나영','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
+INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('mina','강미나','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
+INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('yooyeon','유연정','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
+INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('min','이승민','1','850919-1122334',now(),'010-1234-1234','song@test.com','default.jsp');
 
 
 
@@ -154,11 +154,11 @@ CREATE TABLE Prof (
 	PRIMARY KEY (member_id)
 );
 
-  INSERT INTO Prof(member_id,salary) VALUES ('mankiew','');
-  INSERT INTO Prof(member_id,salary) VALUES ('james',);
-  INSERT INTO Prof(member_id,salary) VALUES ('bare','');
-  INSERT INTO Prof(member_id,salary) VALUES ('gogh','');
-  INSERT INTO Prof(member_id,salary) VALUES ('jason','');
+  INSERT INTO Prof(member_id,salary) VALUES ('mankiew','5000');
+  INSERT INTO Prof(member_id,salary) VALUES ('james','6000');
+  INSERT INTO Prof(member_id,salary) VALUES ('bare','4000');
+  INSERT INTO Prof(member_id,salary) VALUES ('gogh','3000');
+  INSERT INTO Prof(member_id,salary) VALUES ('jason','10000');
 
 
 /*******************
@@ -188,5 +188,24 @@ CREATE TABLE Board(
 	PRIMARY KEY (article_seq)
 );
 
+
+ INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('hong','길동이의 길','길동이가 아버지를 찾아 길을 떠났습니다.',1,now());
+ INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('hong','호부호형(呼父呼兄) ','호부호형(呼父呼兄) : 아버지라 부르고 형이라 부름.',0,now());
+ INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('hong','절언대지(絶言大地)','말을 못할 정도로 좋은 경치나, 땅이나, 풍경 이런 뜻이 아닐까 생각됩니다.',0,now());
+ INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('hong','길동이 전','홍길동은 조선조 세종 때 서울에 사는 홍판서의 시비 춘섬의 소생인 서자다.',0,now());
+ INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('yoo','관순이 일기','내 손톱이 빠져 나가고 내 귀와 코가 잘리고 ',0,now());
+ INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('yoo','유관순 열사','나라를 잃어버린 그 고통만은 견딜 수가 없습니다.',0,now());
+ INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('pjk','자바란','자바를 공부하세요, 인생이 편해집니다.',0,now());
+ INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('skim','김유신의 시','보이는 같지 꽃이 원대하고, 쓸쓸하랴? ',0,now());
+ INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('byeon','롤 하러 가자','생생하며, 가는 너의 끓는 석가는 피어나기 칼이다.',0,now());
+ INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('choi','봉기봉기','피는 얼음에 속에서 생명을 아니다.',0,now());
+ INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('han','원질이',' 원질이 일월과 간에 듣기만 영락과 대고, 아름다우냐?',0,now());
+ INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('skim','꽃이란','싶이 구할 가는 사막이다. 곳으로 꽃 이 구하기 ',0,now());
+ INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('myoo','여름이다','고 재석 고재석 ㅋ',0,now());
+ INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('jinjin','그들의 사랑','그들에게 사랑의 없으면, 그들은 같이 인생의 얼마나 봄날의 이것이다.',0,now());
+ INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('jinjin','광야','광야에서 대중을 우는 설레는 청춘의 위하여서',0,now());
+
+ 
+ 
 
 
