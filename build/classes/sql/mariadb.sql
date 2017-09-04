@@ -260,15 +260,92 @@ from (select a.member_id, a.name,rpad(substr(a.ssn,1,7),14,'*') ssn,to_char(a.re
 /*step 2*/
   	
   	
-  	select a.member_id, a.name,rpad(SUBSTRING(a.ssn,1,7),14,'*') ssn,CONCAT(a.regdate,'yyyy-MM-dd') regdate,
-        a.phone,a.email,group_concat(s.title,',')  과목
+  	select 
+	  	a.member_id, a.name,rpad(SUBSTRING(a.ssn,1,7),14,'*') ssn,
+	  	CONCAT(a.regdate,'yyyy-MM-dd') regdate,
+        a.phone,a.email,group_concat(s.title,',') 과목
     from member a
-        left  join major m on a.member_id like m.member_id
-        left join subject s on m.subj_id like s.subj_id
-        group by a.member_id, a.name, a.ssn,a.regdate,a.phone,a.email
+        left  join
+         major m 
+         on a.member_id like m.member_id
+        left join 
+         subject s on m.subj_id like s.subj_id
+        group by 
+	        a.member_id, a.name, a.ssn,
+	        a.regdate,a.phone,a.email
         order by regdate ;
  
         
+        
+        
+   SELECT
+   a.member_id, a.name,
+   rpad(SUBSTRING(a.ssn,1,7),14,'*') ssn,
+   date_format(a.regdate,'%Y-%m-%d') regdate,
+   a.phone,a.email,group_concat(s.title,',')  과목
+    FROM member a
+        LEFT  JOIN major m
+         on a.member_id like m.member_id
+        LEFT JOIN subject s
+         on m.subj_id like s.subj_id
+        GROUP BY 
+         a.member_id, 
+         a.name, a.ssn,
+         a.regdate,a.phone,a.email
+     ORDER BY regdate ;
+        
+        
+        
+        
+        
   /*step 3 */
 
-
+ create view student(num,id,name,ssn,regdate,phone,email,title)
+as
+select ROW_NUMBER() num, t.*
+from (
+   SELECT
+   a.member_id, a.name,
+   a.password,
+   rpad(SUBSTRING(a.ssn,1,7),14,'*') ssn,
+   date_format(a.regdate,'%Y-%m-%d') regdate,
+   a.phone,a.email,group_concat(s.title,',')  과목
+    FROM member a
+        LEFT  JOIN major m
+         on a.member_id like m.member_id
+        LEFT JOIN subject s
+         on m.subj_id like s.subj_id
+        GROUP BY 
+         a.member_id, 
+         a.name, a.ssn,
+         a.regdate,a.phone,a.email
+     ORDER BY regdate
+     ) t
+  order by rownum desc;
+        
+        
+        
+ 
+select  @RNUM := @RNUM + 1 AS NO,t.*
+from (
+   SELECT
+   a.member_id, a.name,
+   a.password,
+   rpad(SUBSTRING(a.ssn,1,7),14,'*') ssn,
+   date_format(a.regdate,'%Y-%m-%d') regdate,
+   a.phone,a.email,group_concat(s.title,',')  과목
+    FROM member a
+        LEFT  JOIN major m
+         on a.member_id like m.member_id
+        LEFT JOIN subject s
+         on m.subj_id like s.subj_id
+        GROUP BY 
+         a.member_id, 
+         a.name, a.ssn,
+         a.regdate,a.phone,a.email
+     ORDER BY regdate
+     ) t,( SELECT @RNUM := 0 ) b;
+        
+        
+        
+        
