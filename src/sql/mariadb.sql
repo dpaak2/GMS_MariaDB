@@ -96,7 +96,7 @@ INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) v
 INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('susan','susan','1','931222-2233445',now(),'010-1234-1234','susan@test.com','default.jsp');
 INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('jamjam','james','1','850519-1122334',now(),'010-1234-1234','jamjam@test.com','default.jsp');
 INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('sese','sera','1','880401-2233445',now(),'010-1234-1234','sese@test.com','default.jsp');
-INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('christine','1','961121-2567890',now(),'010-1234-1234','christine@test.com','default.jsp');
+INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('christine','크리스틴','1','961121-2567890',now(),'010-1234-1234','christine@test.com','default.jsp');
 INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('chirissy','chris','1','900518-1234567',now(),'010-1234-1234','chirissy@test.com','default.jsp');
 INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('paul','paully','1','931013-1456890',now(),'010-1234-1234','paul@test.com','default.jsp');
 INSERT INTO Member (member_id, name, password,ssn,regdate,phone,email,profile) values ('alex','huabun','1','901111-1122334',now(),'010-1234-1234','alex@test.com','default.jsp');
@@ -195,10 +195,21 @@ CREATE TABLE Board(
  INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('hong','길동이 전','홍길동은 조선조 세종 때 서울에 사는 홍판서의 시비 춘섬의 소생인 서자다.',0,now());
  INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('yoo','관순이 일기','내 손톱이 빠져 나가고 내 귀와 코가 잘리고 ',0,now());
  INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('yoo','유관순 열사','나라를 잃어버린 그 고통만은 견딜 수가 없습니다.',0,now());
+ INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('yoo','나랑사랑','대한 독립 만세',0,now());
  INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('pjk','자바란','자바를 공부하세요, 인생이 편해집니다.',0,now());
+ INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('pjk','제이스고슬링','제임스 고슬링은 신입니다 !!',0,now());
  INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('skim','김유신의 시','보이는 같지 꽃이 원대하고, 쓸쓸하랴? ',0,now());
  INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('byeon','롤 하러 가자','생생하며, 가는 너의 끓는 석가는 피어나기 칼이다.',0,now());
+ INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('byeon','반갑습니다','생생하며, 가는 너의 끓는 석가는 피어나기 칼이다.',0,now());
+ INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('byeon','저는 변용주 입니다','저는 변용주 입니다,생생하며, 가는 너의 끓는 석가는 피어나기 칼이다.',0,now());
+ INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('byeon','변용주 일대기','변용주 일대기,생생하며, 가는 너의 끓는 석가는 피어나기 칼이다.',0,now());
+ INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('byeon','용주쓰','용주쓰,생생하며, 가는 너의 끓는 석가는 피어나기 칼이다.',0,now());
+ INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('byeon','얼굴용 주인주','얼굴용 주인주,생생하며, 가는 너의 끓는 석가는 피어나기 칼이다.',0,now());
+ INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('byeon','아무말 대잔치','아무말 대잔치,생생하며, 가는 너의 끓는 석가는 피어나기 칼이다.',0,now());
  INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('choi','봉기봉기','피는 얼음에 속에서 생명을 아니다.',0,now());
+ INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('choi','저는 조봉기 입니다','봉기형님으로 모셔라',0,now());
+ INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('choi','나는 봉기','나는야 조봉기 !!!피는 얼음에 속에서 생명을 아니다.',0,now());
+ INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('choi','봉기봉기','안녕하세요 조봉기 입니다',0,now());
  INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('han','원질이',' 원질이 일월과 간에 듣기만 영락과 대고, 아름다우냐?',0,now());
  INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('skim','꽃이란','싶이 구할 가는 사막이다. 곳으로 꽃 이 구하기 ',0,now());
  INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('myoo','여름이다','고 재석 고재석 ㅋ',0,now());
@@ -206,6 +217,55 @@ CREATE TABLE Board(
  INSERT INTO Board (member_id,title,content,hitcount,regdate) VALUES ('jinjin','광야','광야에서 대중을 우는 설레는 청춘의 위하여서',0,now());
 
  
+ select count (*) from Board;
+ 
+ 
+ /********************************view Student from oracle**************************************/
+ create view student(num,id,name,ssn,regdate,phone,email,title)
+as
+select rownum num, t.*
+from (select a.member_id, a.name,rpad(substr(a.ssn,1,7),14,'*') ssn,to_char(a.regdate,'yyyy-MM-dd') regdate,
+        a.phone,a.email,listagg(s.title,',') within group(order by s.title) 과목
+    from member a
+        left  join major m on a.member_id like m.member_id
+        left join subject s on m.subj_id like s.subj_id
+        group by a.member_id, a.name, a.ssn,a.regdate,a.phone,a.email
+        order by regdate 
+) t
+  order by rownum desc;
+  
+ 
+ /***********************************************************************************/
+ /********************************view Student from maria**************************************/
+  /*SELECT SUBSTR('w3resource',4,3);  */
+  /*oracle:: rpad ------- mysql::SELECT RPAD('w3resource',15,'*');   */
+  /*oracle:: to_char  ----   mysql:::  SELECT CONCAT('$', FORMAT(1000, 0));*/
+  /*oracle:: listagg ---- */
+  
+    select * 
+  from 
+  member a 
+  	left join major m 
+  		on a.member_id like m.member_id
+  	left join subject s 
+  		on m.subj_id like s.subj_id
+  	group by 
+  	a.member_id, a.name, a.ssn, 
+  	a.regdate, a.phone, a.email
+  	order by regdate
+  	;
+  
+  	
+/*SECOND*/
+  	
+  	
+  	select a.member_id, a.name,rpad(SUBSTRING(a.ssn,1,7),14,'*') ssn,CONCAT(a.regdate,'yyyy-MM-dd') regdate,
+        a.phone,a.email,group_concat(s.title,',')  과목
+    from member a
+        left  join major m on a.member_id like m.member_id
+        left join subject s on m.subj_id like s.subj_id
+        group by a.member_id, a.name, a.ssn,a.regdate,a.phone,a.email
+        order by regdate ;
  
 
 
