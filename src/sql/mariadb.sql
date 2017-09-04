@@ -76,7 +76,7 @@ INSERT INTO MEMBER(member_id, name, password,ssn,regdate,phone,email,profile)
 VALUES('hong','홍길동','1','800101-123456',now(),'010-1234-1234','hong@test.com','default.jsp');
 
 INSERT INTO Member(member_id, name, password,ssn,regdate,phone,email,profile) VALUES('yoo','유관순','1','930701-222222',now(),'010-1234-1234','yoo@test.com','default.jsp');
-INSERT INTO Member(member_id, name, password,ssn,regdate,phone,email,profile) VALUES('han','한채아','1','940506-212324',,now(),'010-1234-1234','han@test.com','default.jsp');
+INSERT INTO Member(member_id, name, password,ssn,regdate,phone,email,profile) VALUES('han','한채아','1','940506-212324',now(),'010-1234-1234','han@test.com','default.jsp');
 INSERT INTO Member(member_id, name, password,ssn,regdate,phone,email,profile) VALUES('myoo','유재석','1','800901-123456',now(),'010-1234-1234','myoo@test.com','default.jsp');
 INSERT INTO Member(member_id, name, password,ssn,regdate,phone,email,profile) VALUES('byeon','변용주','1','861014-123456',now(),'010-1234-1234','byeon@test.com','default.jsp');
 INSERT INTO Member(member_id, name, password,ssn,regdate,phone,email,profile) VALUES('choi','조봉기','1','871010-123456',now(),'010-1234-1234','choi@test.com','default.jsp');
