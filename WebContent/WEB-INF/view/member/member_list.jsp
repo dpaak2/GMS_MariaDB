@@ -34,13 +34,13 @@
 	<tr>
 		<td style="width: 10%;">${i.num}</td>
 		<td style="width: 10%;">${i.id}</td>
-		<td style="width: 10%;"><a onclick="detailStudent('${i.id}')">${i.name}</a></td>
+		<td style="width: 10%;"><a onclick="controller.detailStudent('${i.id}')">${i.name}</a></td>
 		<td style="width: 20%;">${i.email}</td>
-		<td style="width: 10%;">${i.title}</td>
+		<td style="width: 10%;">${i.subjects}</td>
 		<td style="width: 10%;">${i.phone}</td>
 		<td style="width: 15%;">${i.regdate}</td>
 		<td style="width: 15%;"><a onclick="updateStudent('${i.id}')">수정</a>
-		/
+		
 		<a onclick="deleteStudent('${i.id}')">삭제</a></td>
 
 	</tr>

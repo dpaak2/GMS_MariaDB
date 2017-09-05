@@ -36,10 +36,10 @@ public class MemberServiceImpl implements MemberService {
 		cmd.setSearch(bean.getId());
 	    MemberBean m = dao.login(cmd);
 	    String page=(m!=null)?(bean.getPw().equals(m.getPw()))?"main":"login_fail":"join";
+	    System.out.println("service Impl login page는????"+page);
 	    map.put("page", page);
 	    map.put("user", m);
 		return map;
-	
 	}
 	
 	@Override
@@ -103,6 +103,7 @@ public class MemberServiceImpl implements MemberService {
 		System.out.println("serviceImpl*****" + mem);
 		return result;
 	}
+
 
 	@Override
 	public String removeUser(Command cmd) {

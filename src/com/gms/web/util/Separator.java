@@ -17,6 +17,8 @@ public class Separator {
 				request.getParameter("pageNumber"),
 				request.getParameter("column"),
 				request.getParameter("search"));
-		System.out.println("action !!!!"+request.getParameter("action"));
+		System.out.println("separator action !!!!"+request.getParameter("action"));
+		
+		
 	}
 }

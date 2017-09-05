@@ -345,7 +345,119 @@ from (
          a.regdate,a.phone,a.email
      ORDER BY regdate
      ) t,( SELECT @RNUM := 0 ) b;
+      
+SELECT *
+FROM (
+SELECT @NO := @NO + 1 AS ROWNUM, A.*
+FROM
+  (
+       SELECT
+   a.member_id, a.name,
+   a.password,
+   rpad(SUBSTRING(a.ssn,1,7),14,'*') ssn,
+   date_format(a.regdate,'%Y-%m-%d') regdate,
+   a.phone,a.email,group_concat(s.title,',')  과목
+    FROM member a
+        LEFT  JOIN major m
+         on a.member_id like m.member_id
+        LEFT JOIN subject s
+         on m.subj_id like s.subj_id
+        GROUP BY 
+         a.member_id, 
+         a.name, a.ssn,
+         a.regdate,a.phone,a.email
+     ORDER BY regdate
+  ) A,
+  ( SELECT @NO := 0 ) B 
+  ORDER BY seq_no DESC
+) C
+WHERE C.ROWNUM BETWEEN 1 AND 5;
+
         
-        
-        
-        
+      
+ 
+ /*step 4 */
+     create view 
+     student
+     (
+     id,name,ssn,
+     regdate,phone,email,
+     pass,subjects
+     )
+     as
+     (select 
+      		a.member_id id,
+      		a.name name,
+      		rpad(substring(a.ssn,1,8),14,'*')ssn,
+      		date_format(a.regdate,'%Y-%m-%d')regdate,
+      		a.phone phone,
+      		a.email email,
+      		group_concat(s.title,',') subjects
+       FROM
+       Member a
+       LEFT join 
+       Major m
+       on a.member_id liske me.member_id
+       left join Subject s
+       		on m.subj_id like s.subjc_id
+       	group by 
+       	  a.member_id, a.name, a.ssn,
+       	  a.regdate,a.phone,a.email
+       	  order by regdate
+       	  );
+       	  
+       	  
+/*FINAL*/     	  
+  drop view Student;     	  
+CREATE view
+  student 
+  (id,name,ssn,regdate,phone,email,password,subjects
+)
+AS
+(
+  SELECT
+    a.member_id id,
+    a.name name,
+    RPAD(SUBSTRING(a.ssn,1,7),14,'*') ssn,
+    DATE_FORMAT(a.regdate, '%Y-%m-%d') regdate,
+    a.phone phone,
+    a.email email,
+    a.password password,
+    GROUP_CONCAT(s.title,',') subjects
+  FROM member a
+    LEFT JOIN Major m
+      ON a.member_id LIKE m.member_id
+   LEFT JOIN Subject s 
+      ON m.subj_id LIKE s.subj_id
+   GROUP BY
+      a.member_id, a.name, a.ssn,
+      a.regdate, a.phone, a.email
+   ORDER BY regdate
+); 
+
+
+
+
+/*pagination*/
+
+select @RNUM := @RNUM +1 AS NO,t.*
+from student t,(select @RNUM := 0)b;
+
+
+
+
+
+SELECT *
+FROM (
+SELECT @NO := @NO + 1 AS ROWNUM, A.*
+FROM
+  (
+    select * from Student
+  ) A,
+  ( SELECT @NO := 0 ) B 
+  ORDER BY ROWNUM DESC
+) C
+WHERE C.ROWNUM BETWEEN 10 AND 14;
+
+
+

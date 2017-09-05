@@ -16,10 +16,6 @@ import com.gms.web.serviceImpl.MemberServiceImpl;
 import com.gms.web.util.DispatcherSevlet;
 import com.gms.web.util.Separator;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-
 
 @WebServlet({"/home.do","/common.do"})
 public class CommonController extends HttpServlet {
@@ -31,16 +27,21 @@ public class CommonController extends HttpServlet {
 		
 		System.out.println("^^^^^^^^^^CommonController do get 진입");
 		Separator.init(request);
-		switch (Separator.cmd.getAction()) {
+		String action= Separator.cmd.getAction();
+		System.out.println("common controller action"+action);
+		switch (action) {
 		case Action.MOVE:
 			DispatcherSevlet.send(request, response);
 			break;
 			
 		case Action.LOGIN:
+			System.out.println("로그인 진입");
 			memberBean=new MemberBean();
 			MemberService service= MemberServiceImpl.getInstance();
-			memberBean.setId(request.getParameter("input_id"));
-			memberBean.setPw(request.getParameter("input_pass"));
+			String inputId=request.getParameter("input_id");
+			memberBean.setId(inputId);
+			String inputPass=request.getParameter("input_password");
+			memberBean.setPw(inputPass);
 			System.out.println("requested id & pass form JSP::: id= "+memberBean.getId()+" pass= "+memberBean.getPw());
 			Map<String,Object> login=service.login(memberBean);
 			System.out.println("page :::: "+login);

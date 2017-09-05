@@ -3,7 +3,7 @@ package com.gms.web.constant;
 public class SQL {
 	// id, pw,name,email,major,subject,phone,profile;
 	public static final String MEMBER_INSERT = String.format("INSERT INTO %s(member_id, name, password,ssn,phone,email,profile,regdate) "
-																	       + "VALUES(?,?,?,?,?,?,?,SYSDATE)", DB.TABLE_MEMBER);
+																	       + "VALUES(?,?,?,?,?,?,?,now())", DB.TABLE_MEMBER);
 	public static final String MEMBER_LIST = String.format("SELECT * FROM %s", "Member");
 	public static final String MEMBER_FINDBYID=String.format("SELECT * FROM %s WHERE %s=?", DB.TABLE_MEMBER,DB.MEMBER_ID);
 	public static final String MEMBER_COUNT=String.format("SELECT COUNT(*) as %s FROM %s",DB.MEMBER_COUNT,DB.TABLE_MEMBER);
@@ -18,12 +18,24 @@ public class SQL {
 	public static final String ARTICLE_DELETE=String.format("DELETE FROM %s WHERE %s=?", DB.TABLE_BOARD,DB.ARTICLE_SEQ);
 	public static final String MJAJOR_INSERT=String.format("INSERT INTO %s(%s,%s,%s,%s) VALUES(?,?,?,?)", DB.TABLE_MAJOR,DB.MAJOR_ID,DB.TITLE,DB.MEMBER_ID,DB.SUBJECT_ID);
 														/* num,id,name,ssn,regdate,phone,email,title */			
-	public static final String STUDENT_LIST=" select t2.* "
+	public static final String STUDENT_LIST=
+			"SELECT *" + 
+			"FROM (" + 
+			"SELECT @NO := @NO + 1 AS ROWNUM, A.*" + 
+			"FROM" + 
+			"  (" + 
+			"    select * from Student" + 
+			"  ) A," + 
+			"  ( SELECT @NO := 0 ) B " + 
+			"  ORDER BY ROWNUM DESC" + 
+			") C" + 
+			"WHERE C.ROWNUM BETWEEN ? AND ?";
+			/*" select t2.* "
 			+ "from (select rownum seq, t.*"
 			+ " from( select * "
 			+ "from student"
 			+ " order  by num DESC )t)t2"
-			+ " where t2.seq between ? and ?";
+			+ " where t2.seq between ? and ?";*/
 
 	
 	public static final String STUDENT_FINDBYNAME="select t2.* "

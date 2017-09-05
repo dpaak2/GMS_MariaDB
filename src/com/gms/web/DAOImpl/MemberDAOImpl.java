@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -41,7 +42,7 @@ public class MemberDAOImpl implements MemberDAO {
 		// catch에서 잡아 줘야 되서 밖으로 뺐다
 		try {
 			// transaction
-			Connection conn = DatabaseFactory.createDatabase(Vendor.ORACLE, DB.ID, DB.PW).getConnection();
+			Connection conn = DatabaseFactory.createDatabase(Vendor.MARIADB, DB.ID, DB.PW).getConnection();
 			conn.setAutoCommit(false);
 			pstmt = conn.prepareStatement(SQL.MEMBER_INSERT);
 			System.out.println("member insert::" + SQL.MEMBER_INSERT);
@@ -95,11 +96,28 @@ public class MemberDAOImpl implements MemberDAO {
 		System.out.println("%%%%%query student List " + SQL.STUDENT_LIST);
 
 		try {
-			conn = DatabaseFactory.createDatabase(Vendor.ORACLE, DB.ID, DB.PW).getConnection();
-			PreparedStatement pstmt = conn.prepareStatement(SQL.STUDENT_LIST);
-			pstmt.setString(1, cmd.getStartRow());
-			pstmt.setString(2, cmd.getEndRow());
-			ResultSet rs = pstmt.executeQuery();
+			int startRow=Integer.parseInt(cmd.getStartRow());
+			int endRow=Integer.parseInt(cmd.getEndRow());
+			String sql=
+					"SELECT *" + 
+					"FROM (" + 
+					"SELECT @NO := @NO + 1 AS num, A.*" + 
+					"FROM" + 
+					"  (" + 
+					"    select * from Student" + 
+					"  ) A," + 
+					"  ( SELECT @NO := 0 ) B " + 
+					") C" + 
+					" WHERE C.num BETWEEN "+startRow+" AND "+endRow+
+					"  ORDER BY num DESC";
+			conn = DatabaseFactory.createDatabase(Vendor.MARIADB, DB.ID, DB.PW).getConnection();
+		    Statement stmt= conn.createStatement();
+			
+			System.out.println("DAOIMPL SELECT ALL **** startRow"+startRow);
+			System.out.println("DAOIMPL SELECT ALL **** endRow"+endRow);
+		/*	pstmt.setInt(1,startRow);
+			pstmt.setString(2, endRow);*/
+			ResultSet rs = stmt.executeQuery(sql);
 			StudentBean temp = null;
 			while (rs.next()) {
 				temp = new StudentBean();
@@ -107,16 +125,18 @@ public class MemberDAOImpl implements MemberDAO {
 				temp.setName(rs.getString(DB.MEMBER_NAME));
 				temp.setSsn(rs.getString(DB.MEMBER_SSN));
 				temp.setEmail(rs.getString(DB.EMAIL));
+				temp.setNum(String.valueOf(rs.getInt(DB.NUM)));
+				System.out.println("mysql 에서 @ 숫자::: "+rs.getString(DB.NUM));
 				temp.setPhone(rs.getString(DB.PHONE));
+				temp.setSubjects(rs.getString(DB.SUBJECTS));
 				temp.setRegdate(rs.getString(DB.MEMBER_REGDATE));
-				temp.setNum(rs.getString(DB.NUM));
-				temp.setTitle(rs.getString(DB.TITLE));
 				memberList.add(temp);
 			}
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			System.out.println("db error::: selectAll 왜 안나옴??? ");
 			e.printStackTrace();
 		}
+		System.out.println("title%%%%%"+memberList.toString());
 		return memberList;
 	}
 
@@ -127,7 +147,7 @@ public class MemberDAOImpl implements MemberDAO {
 			String sql = "";
 			String search = cmd.getSearch();
 			sql = (search == null) ? "%" : "%" + search + "%";
-			PreparedStatement pstmt = DatabaseFactory.createDatabase(Vendor.ORACLE, DB.ID, DB.PW).getConnection()
+			PreparedStatement pstmt = DatabaseFactory.createDatabase(Vendor.MARIADB, DB.ID, DB.PW).getConnection()
 					.prepareStatement(SQL.STUDENT_COUNT);
 			pstmt.setString(1, sql);
 			System.out.println("SQL count::" + SQL.STUDENT_COUNT);
@@ -150,7 +170,7 @@ public class MemberDAOImpl implements MemberDAO {
 		String id = cmd.getSearch();
 		System.out.println("search::" + id);
 		try {
-			PreparedStatement pstmt = DatabaseFactory.createDatabase(Vendor.ORACLE, DB.ID, DB.PW).getConnection()
+			PreparedStatement pstmt = DatabaseFactory.createDatabase(Vendor.MARIADB, DB.ID, DB.PW).getConnection()
 					.prepareStatement(SQL.STUDNET_FINDBYID);
 			pstmt.setString(1, id);
 			ResultSet rs = pstmt.executeQuery();
@@ -162,8 +182,7 @@ public class MemberDAOImpl implements MemberDAO {
 				bean.setEmail(rs.getString(DB.EMAIL));
 				bean.setPhone(rs.getString(DB.PHONE));
 				bean.setRegdate(rs.getString(DB.MEMBER_REGDATE));
-				bean.setNum(rs.getString(DB.NUM));
-				bean.setTitle(rs.getString(DB.TITLE));
+				bean.setSubjects(rs.getString(DB.TITLE));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -180,7 +199,7 @@ public class MemberDAOImpl implements MemberDAO {
 		System.out.println("DAOIMPL select by name::" + name);
 		System.out.println("DAOIMPL select by column::" + cmd.getColumn());
 		try {
-			PreparedStatement pstmt = DatabaseFactory.createDatabase(Vendor.ORACLE, DB.ID, DB.PW).getConnection()
+			PreparedStatement pstmt = DatabaseFactory.createDatabase(Vendor.MARIADB, DB.ID, DB.PW).getConnection()
 					.prepareStatement(SQL.STUDENT_FINDBYNAME);
 			pstmt.setString(1, "%" + name + "%");
 			System.out.println("SQL query::" + SQL.STUDENT_FINDBYNAME);
@@ -194,8 +213,8 @@ public class MemberDAOImpl implements MemberDAO {
 				temp.setEmail(rs.getString(DB.EMAIL));
 				temp.setPhone(rs.getString(DB.PHONE));
 				temp.setRegdate(rs.getString(DB.MEMBER_REGDATE));
-				temp.setNum(rs.getString(DB.NUM));
-				temp.setTitle(rs.getString(DB.TITLE));
+				temp.setNum(String.valueOf(rs.getInt(DB.NUM)));
+				temp.setSubjects(rs.getString(DB.TITLE));
 				nameList.add(temp);
 			}
 
@@ -210,7 +229,7 @@ public class MemberDAOImpl implements MemberDAO {
 	public String updateProfile(MemberBean bean) {
 		String updateResult = "";
 		try {
-			PreparedStatement pstmt = DatabaseFactory.createDatabase(Vendor.ORACLE, DB.ID, DB.PW).getConnection()
+			PreparedStatement pstmt = DatabaseFactory.createDatabase(Vendor.MARIADB, DB.ID, DB.PW).getConnection()
 					.prepareStatement(SQL.MEMBER_UPDATE);
 			pstmt.setString(1, bean.getPw());
 			pstmt.setString(2, bean.getId());
@@ -227,7 +246,7 @@ public class MemberDAOImpl implements MemberDAO {
 		String id = cmd.getSearch();
 		System.out.println("delete id : " + id);
 		try {
-			PreparedStatement pstmt = DatabaseFactory.createDatabase(Vendor.ORACLE, DB.ID, DB.PW).getConnection()
+			PreparedStatement pstmt = DatabaseFactory.createDatabase(Vendor.MARIADB, DB.ID, DB.PW).getConnection()
 					.prepareStatement(SQL.MEMBER_DELETE);
 			pstmt.setString(1, id);
 			deleteUser = String.valueOf(pstmt.executeUpdate());
@@ -243,7 +262,7 @@ public class MemberDAOImpl implements MemberDAO {
 		String id = cmd.getSearch();
 		System.out.println("search::" + id);
 		try {
-			PreparedStatement pstmt = DatabaseFactory.createDatabase(Vendor.ORACLE, DB.ID, DB.PW).getConnection()
+			PreparedStatement pstmt = DatabaseFactory.createDatabase(Vendor.MARIADB, DB.ID, DB.PW).getConnection()
 					.prepareStatement(SQL.MEMBER_FINDBYID);
 			pstmt.setString(1, id);
 			ResultSet rs = pstmt.executeQuery();

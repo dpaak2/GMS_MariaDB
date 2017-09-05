@@ -4,7 +4,6 @@
 var app=(function(){ /*god 을 만드는것 */     /*c: controller*/
 	var init = function(ctx){
 		session.init(ctx);
-		/*member.init(); member는 ctx를 전달하지 않는다 */
 		onCreate();  /*내부에서는 객체가 아니라 method호출*/
 	};
 	var onCreate=function(){   /* c: controller */
@@ -66,11 +65,11 @@ var member=(function(){
 		$('#loginBtn').on('click',function(){
 			alert('로그인 버튼 click');
 
-			 if($('#input_id')===""){
+			 if($('#input_id').val()===""){
 				 alert('ID를 입력해 주세요 ');
 				 return false;
 			 }
-			 if($('#input_pass')===""){
+			 if($('#input_pass').val()===""){
 				 alert('password 를 입력해 주세요 ');
 				 return false;
 			 }
@@ -112,7 +111,7 @@ var memberDetail=(function(){
 		alert('member detail');
 	};
 	return {
-		init : init
+		init : init,
 	};
 })();
 
@@ -134,7 +133,7 @@ var memberUpdate=(function(){
 		var name= sessionStorage.getItem('name');
 		var phone= sessionStorage.getItem('phone');
 		var email= sessionStorage.getItem('email');
-		var password= $('#confirm').val;
+		var password= $('#confirm').val();
 		$('#phone').attr('placeholder',phone);
 		$('#email').attr('placeholder',email);
 		
@@ -159,6 +158,7 @@ var controller=(function(){
 	}
 
 	var list= function(dir,page,pageNumber){
+		alert('pageNumber'+pageNumber);
 		location.href=app.ctx()+"/"+dir+".do?action=list&page="+page+"&pageNumber="+pageNumber;
 	}
 	var updateStudent=function(id,email){
@@ -169,9 +169,9 @@ var controller=(function(){
 		alert('삭제할 아이디: '+id);
 		location.href=app.ctx()+"/member.do?action=delete&page=member_list&id="+id;
 	}
-	var detailStudent=function (id){
-		alert('디테일 아이디: '+id);
-		location.href=app.ctx()+"/member.do?action=detail&page=member_detail&id="+id;
+	var detailStudent=function (x){
+		alert('디테일 아이디: '+x);
+		location.href=app.ctx()+"/member.do?action=detail&page=member_detail&id="+x;
 	}
 	var searchName =function(){
 	 	var $name =$('#searchName').val; 

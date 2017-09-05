@@ -38,7 +38,12 @@ public class Command implements Commandable {
 	}
 
 	public void setAction(String action) {
-		this.action = (action==null)?"move":action;
+		if(action==null){
+			this.action="move";
+		}else {
+			this.action=action;
+		}
+		/*this.action = (action==null)?"move":action;*/
 		System.out.println("COmmand action:::"+action);
 	}
 

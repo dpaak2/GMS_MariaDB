@@ -3,7 +3,7 @@ package com.gms.web.domain;
 
 public class StudentBean {
 	private String num,id,name,ssn,regdate,
-	phone,email,title;
+	phone,email,subjects;
 
 	public String getNum() {
 		return num;
@@ -61,18 +61,21 @@ public class StudentBean {
 		this.email = email;
 	}
 
-	public String getTitle() {
-		return title;
+
+
+	public String getSubjects() {
+		return subjects;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setSubjects(String subjects) {
+		this.subjects = subjects;
 	}
 
 	@Override
 	public String toString() {
 		return "StudentBean [num=" + num + ", id=" + id + ", name=" + name + ", ssn=" + ssn + ", regdate=" + regdate
-				+ ", phone=" + phone + ", email=" + email + ", title=" + title + "]";
+				+ ", phone=" + phone + ", email=" + email + ", subjects=" + subjects + "]";
 	}
-	
+
+
 }

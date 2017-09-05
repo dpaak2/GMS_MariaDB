@@ -21,13 +21,7 @@
                       <hr>
                     <div class="col-md-6">  
                     <ul class=" details"> 
-                      <li>
-                      	<p>
-                      		<span style="width:50px;">
-                      		</span>
-                      			# ${requestScope.student.num}
-                      	 </p>
-                      </li>
+                    
                       <li>
                       	<p id="id">
                       		<span class="glyphicon glyphicon-credit-card one" style="width:50px;">
@@ -61,7 +55,7 @@
                       </p>
                       <p id="title" >
                       	<span class="glyphicon glyphicon-blackboard" style="width:50px;"></span>
-                      	${requestScope.student.title}
+                      	${requestScope.student.subjects}
                       </p>
                    
                       <%-- <div class="col-sm-5 col-xs-6 tital " >Gender:</div>
